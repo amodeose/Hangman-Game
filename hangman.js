@@ -1,6 +1,3 @@
-
-//GLOBAL VARIABLES
-
 var wordBank = ['perseverence', 'domineering', 'ceaseless'];
 var word;
 var wordField = [];
@@ -9,8 +6,6 @@ var usedLetters = [];
 var wins = 0;
 var guesses = 5;
 var blanks;
-
-//FUNCTIONS
 
 var randomWord = function() {
 var index = Math.floor(Math.random() * wordBank.length);
@@ -24,8 +19,6 @@ var generateBlanks = function() {
     }
     document.getElementById("word").textContent = wordField.join(" ");
 }
-
-//INITIALIZE GAME
 
 randomWord();
 generateBlanks();
