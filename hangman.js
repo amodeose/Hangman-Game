@@ -1,7 +1,7 @@
 
 //GLOBAL VARIABLES
 
-var wordBank = ["perseverence"];
+var wordBank = ['perseverence', 'domineering', 'ceaseless'];
 var word;
 var wordField = [];
 var correctLetters = 0;
@@ -13,7 +13,7 @@ var blanks;
 //FUNCTIONS
 
 var randomWord = function() {
-var index = Math.floor(Math.random() * (wordBank.length - 1));
+var index = Math.floor(Math.random() * wordBank.length);
 word = wordBank[index];
 blanks = word.length;
 }
