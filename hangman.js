@@ -1,8 +1,7 @@
-var wordBank = ['deer', 'elephant', 'hummingbird', "tiger"];
-var imageBank = ['deer.jpg', 'elephant.jpg', 'hummingbird.jpg', 'tiger.jpg'];
+var wordBank = ['deer', 'elephant', 'hummingbird', "tiger", "eagle", "fox", "gorilla", "ostrich", "penguin", "rabbit", "rhino", "zebra"];
+var imageBank = ['deer.jpg', 'elephant.jpg', 'hummingbird.jpg', 'tiger.jpg', 'eagle.jpg', 'fox.jpg', 'gorilla.jpg', 'ostrich.jpg', 'penguin.jpg', 'rabbit.jpg', 'rhino.jpg', 'zebra.jpg'];
 var word;
 var wordField = [];
-var correctLetters = 0;
 var usedLetters = [];
 var wins = 0;
 var losses = 0;
@@ -42,16 +41,14 @@ var checkLetter = function(letter) {
 
     while (checkedIndex >= 0) {
         wordField.splice(checkedIndex, 1, letter);
-        correctLetters++;
         delete wordArr[checkedIndex];
         checkedIndex = wordArr.indexOf(letter);
     }
 
-    if (correctLetters === word.length) {
+    if (wordField.join('') == word) {
         wins++;
         guesses = 5;
         wordField = [];
-        correctLetters = 0;
         usedLetters = [];
         randomWord();
         matchImage();
@@ -79,7 +76,7 @@ var checkLetter = function(letter) {
 
 document.onkeyup = function() {
     var keyPress = event.key;
-    setTimeout (checkLetter, 500, keyPress);
+    checkLetter(keyPress);
     
 }
 
