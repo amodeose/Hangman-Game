@@ -1,4 +1,5 @@
-var wordBank = ['perseverence', 'domineering', 'ceaseless'];
+var wordBank = ['deer', 'elephant', 'hummingbird', "tiger"];
+var imageBank = ['deer.jpg', 'elephant.jpg', 'hummingbird.jpg', 'tiger.jpg'];
 var word;
 var wordField = [];
 var correctLetters = 0;
@@ -7,9 +8,10 @@ var wins = 0;
 var losses = 0;
 var guesses = 5;
 var blanks;
+var index;
 
 var randomWord = function() {
-var index = Math.floor(Math.random() * wordBank.length);
+index = Math.floor(Math.random() * wordBank.length);
 word = wordBank[index];
 blanks = word.length;
 }
@@ -21,7 +23,11 @@ var generateBlanks = function() {
     document.getElementById("word").textContent = wordField.join(" ");
 }
 
+var matchImage = function() {
+    document.getElementById('image').src = "assets/images/" + imageBank[index];
+}
 randomWord();
+matchImage();
 generateBlanks();
 
 
@@ -48,6 +54,7 @@ var checkLetter = function(letter) {
         correctLetters = 0;
         usedLetters = [];
         randomWord();
+        matchImage();
         generateBlanks();
     }
 
@@ -58,6 +65,7 @@ var checkLetter = function(letter) {
         correctLetters = 0;
         usedLetters = [];
         randomWord();
+        matchImage();
         generateBlanks();
     }
     
@@ -71,7 +79,7 @@ var checkLetter = function(letter) {
 
 document.onkeyup = function() {
     var keyPress = event.key;
-    checkLetter(keyPress);
+    setTimeout (checkLetter, 500, keyPress);
     
 }
 

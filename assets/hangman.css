@@ -1,0 +1,11 @@
+
+
+img {
+    margin: 0 auto;
+    display: block;
+    height: 200px;
+}
+
+body {
+    background-image: url("images/vintage-concrete.png");
+}
