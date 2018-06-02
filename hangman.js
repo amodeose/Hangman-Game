@@ -25,10 +25,18 @@ var generateBlanks = function() {
 var matchImage = function() {
     document.getElementById('image').src = "assets/images/" + imageBank[index];
 }
-randomWord();
-matchImage();
-generateBlanks();
 
+var startGame = function() {
+    document.getElementById('image').style.filter = 'blur(16px)';
+    guesses = 5;
+    wordField = [];
+    usedLetters = [];
+    randomWord();
+    matchImage();
+    generateBlanks();
+}
+
+startGame();
 
 var checkLetter = function(letter) {
     wordArr = word.split("");
@@ -47,23 +55,14 @@ var checkLetter = function(letter) {
 
     if (wordField.join('') == word) {
         wins++;
-        guesses = 5;
-        wordField = [];
-        usedLetters = [];
-        randomWord();
-        matchImage();
-        generateBlanks();
+        document.getElementById('image').style.filter = 'none';
+        setTimeout(function(){ startGame(); }, 1000);
     }
 
     if (guesses === 0) {
         losses++;
-        guesses = 5;
-        wordField = [];
-        correctLetters = 0;
-        usedLetters = [];
-        randomWord();
-        matchImage();
-        generateBlanks();
+        document.getElementById('image').style.filter = 'none';
+        startGame();
     }
     
     document.getElementById("word").textContent = wordField.join(" ");
@@ -79,5 +78,7 @@ document.onkeyup = function() {
     checkLetter(keyPress);
     
 }
+
+
 
 
