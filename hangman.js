@@ -4,6 +4,7 @@ var wordField = [];
 var correctLetters = 0;
 var usedLetters = [];
 var wins = 0;
+var losses = 0;
 var guesses = 5;
 var blanks;
 
@@ -49,10 +50,21 @@ var checkLetter = function(letter) {
         randomWord();
         generateBlanks();
     }
+
+    if (guesses === 0) {
+        losses++;
+        guesses = 5;
+        wordField = [];
+        correctLetters = 0;
+        usedLetters = [];
+        randomWord();
+        generateBlanks();
+    }
     
     document.getElementById("word").textContent = wordField.join(" ");
-    document.getElementById("letters").textContent = usedLetters.join(", ");
+    document.getElementById("letters").textContent = usedLetters.join(" ").toUpperCase();
     document.getElementById("wins").textContent = wins;
+    document.getElementById("losses").textContent = losses;
     document.getElementById("guesses").textContent = guesses;
 
 }

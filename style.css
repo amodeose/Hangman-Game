@@ -1,0 +1,12 @@
+* {
+    font-size: 1.2em;
+}
+
+img {
+    margin: 0 auto;
+    display: block;
+}
+
+body {
+    background-image: url("assets/images/vintage-concrete.png");
+}
