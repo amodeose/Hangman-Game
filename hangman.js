@@ -1,4 +1,4 @@
-var wordBank = ['deer', 'elephant', 'hummingbird', "tiger", "eagle", "fox", "gorilla", "ostrich", "penguin", "rabbit", "rhino", "zebra"];
+var wordBank = ['deer', 'elephant', 'hummingbird', "tiger", "eagle", "fox", "gorilla", "ostrich", "penguin", "rabbit", "rhino", "zebra", "bear", "dolphin", "lion", "pig", "squirrel"];
 var word;
 var wordField = [];
 var usedLetters = [];
