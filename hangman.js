@@ -1,5 +1,4 @@
 var wordBank = ['deer', 'elephant', 'hummingbird', "tiger", "eagle", "fox", "gorilla", "ostrich", "penguin", "rabbit", "rhino", "zebra"];
-var imageBank = ['deer.jpg', 'elephant.jpg', 'hummingbird.jpg', 'tiger.jpg', 'eagle.jpg', 'fox.jpg', 'gorilla.jpg', 'ostrich.jpg', 'penguin.jpg', 'rabbit.jpg', 'rhino.jpg', 'zebra.jpg'];
 var word;
 var wordField = [];
 var usedLetters = [];
@@ -23,7 +22,7 @@ var generateBlanks = function() {
 }
 
 var matchImage = function() {
-    document.getElementById('image').src = "assets/images/" + imageBank[index];
+    document.getElementById('image').src = "assets/images/" + wordBank[index] + ".jpg";
 }
 
 var startGame = function() {
@@ -55,14 +54,18 @@ var checkLetter = function(letter) {
 
     if (wordField.join('') == word) {
         wins++;
+        word = "";
         document.getElementById('image').style.filter = 'none';
-        setTimeout(function(){ startGame(); }, 1000);
+        wordBank.splice(index, 1);
+        setTimeout(function(){ startGame(); }, 1500);
     }
 
     if (guesses === 0) {
         losses++;
+        word = "";
+        wordBank.splice(index, 1);
         document.getElementById('image').style.filter = 'none';
-        startGame();
+        setTimeout(function(){ startGame(); }, 1500);
     }
     
     document.getElementById("word").textContent = wordField.join(" ");
